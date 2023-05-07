@@ -22,6 +22,7 @@ const NavTab = () => {
           var error = response.data.error;
           // toast(error);
           return;
+          
         } else if (response.status == 401) {
           // toast("Unauthorized request!");
           return;

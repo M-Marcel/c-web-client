@@ -149,6 +149,7 @@ const CreateCollection: FC<ICollectionProps> = () => {
       validateFileInput(files, fieldName);
       // setCollectionFeaturedArt(files[0]);
       const { imgUrl } = await uploadFile(files[0], toast);
+      console.log(`Uploaded ${files[0]}`);
       setCollectionFeaturedArt(imgUrl);
       setCollectionFeaturedArtPreview(URL.createObjectURL(files[0]));
     }
@@ -207,7 +208,8 @@ const CreateCollection: FC<ICollectionProps> = () => {
       toast(msg);
       return false;
     } else if (!collectionBanner || !collectionFeaturedArt || !collectionLogo) {
-      msg = "Some the required images are still not added";
+      msg = `Some of the required images are still not added featuredArt=${collectionFeaturedArt} Logo=${collectionLogo} Banner=${collectionBanner}`;
+      // msg = "Some of the required images are still not added";
       toast(msg);
       return false;
     }
