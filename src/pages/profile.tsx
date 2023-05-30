@@ -162,7 +162,7 @@ const Profile = () => {
           toast("Unauthorized request!");
           return;
         } else if (response.status == 200) {
-          setUserOwnedProfileData(response.data.data);
+          setUserOwnedProfileData(response.data.data.ownedNfts);
         } else {
           toast("Something went wrong, please try again!");
           return;
@@ -367,6 +367,7 @@ const Profile = () => {
             index < response.data.data.listed_items.length;
             index++
           ) {
+            console.log("listed profile data biger 0",response.data.data.listed_items)
             setUserListedProfileData((prev) => [
               ...prev,
               response.data.data.listed_items[index],
@@ -377,6 +378,7 @@ const Profile = () => {
             // ]);
           }
         } else {
+          console.log("listed profile data < 0" ,response.data.data.listed_items)
           setUserListedProfileData([
             ...userListedProfileData,
             ...response.data.data.listed_items,

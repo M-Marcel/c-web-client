@@ -11,28 +11,28 @@ import APPCONFIG from "../../constants/Config";
 //   time?: boolean;
 
 const OwnedNftCard = ({
-  metadata,
+  rawMetadata,
   name,
   tokenId,
-  tokenAddress,
+  contract,
   to = "buy-view-nft",
 }: {
-  metadata: string;
+  rawMetadata: object;
   name: string;
   tokenId: string;
-  tokenAddress: string;
+  contract: object;
   to?: string;
 }) => {
   const { push } = useRouter();
 
   const openLink = () =>{
-      if(metadata && metadata.cloudax_token 
-       && metadata.cloudax_token._id
-       && metadata.cloudax_token._id.lenght > 0){
-        push(`/buy-view-nft/${metadata.cloudax_token._id}`)
+      if(rawMetadata && rawMetadata.cloudax_token 
+       && rawMetadata.cloudax_token._id
+       && rawMetadata.cloudax_token._id.lenght > 0){
+        push(`/buy-view-nft/${rawMetadata.cloudax_token._id}`)
       }
       else{
-        push(`/${to}/${tokenAddress}?tokenId=${tokenId}`)
+        push(`/${to}/${contract.address}?tokenId=${tokenId}`)
       }
   }
   return (
@@ -43,16 +43,16 @@ const OwnedNftCard = ({
       <div className="nmc-wrapper-img">
             <Image
               src={
-                metadata &&
-                metadata.image !== undefined &&
-                metadata.image !== null 
-                  ? metadata.image
+                rawMetadata &&
+                rawMetadata.image !== undefined &&
+                rawMetadata.image !== null 
+                  ? rawMetadata.image
                   : APPCONFIG.DEFAULT_NFT_ART
               }
-              alt={metadata &&
-                metadata.image !== undefined &&
-                metadata.image !== null
-                ? metadata.name : ""
+              alt={rawMetadata &&
+                rawMetadata.image !== undefined &&
+                rawMetadata.image !== null
+                ? rawMetadata.name : ""
               }
               layout="fill"
               placeholder="blur"
@@ -65,12 +65,12 @@ const OwnedNftCard = ({
         <div className="flex flex-col gap-y-[0.3rem] p-2">
           <span className="font-bold text-black text-xl">
             {
-            metadata &&
-            metadata !== undefined &&
-            metadata !== null &&
-            metadata.name !== undefined &&
-            metadata.name !== null
-              ? metadata.name
+            rawMetadata &&
+            rawMetadata !== undefined &&
+            rawMetadata !== null &&
+            rawMetadata.name !== undefined &&
+            rawMetadata.name !== null
+              ? rawMetadata.name
               : name+" - "+tokenId
               }
           </span>

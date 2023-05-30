@@ -191,11 +191,11 @@ const ListNft = () => {
     setIsTransLoading((prev) => !prev);
     let msg = "";
     let collection_id =
-      itemDetail.metadata &&
-      itemDetail.metadata.cloudax_token &&
-      itemDetail.metadata.cloudax_token.coludax_collection_id &&
-      itemDetail.metadata.cloudax_token.coludax_collection_id.lenght > 0
-        ? itemDetail.metadata.cloudax_token.coludax_collection_id
+      itemDetail.rawMetadata &&
+      itemDetail.rawMetadata.cloudax_token &&
+      itemDetail.rawMetadata.cloudax_token.coludax_collection_id &&
+      itemDetail.rawMetadata.cloudax_token.coludax_collection_id.lenght > 0
+        ? itemDetail.rawMetadata.cloudax_token.coludax_collection_id
         : nftPayloadselect.id;
 
     if (
@@ -275,7 +275,6 @@ const ListNft = () => {
         toast("Transaction cancelled!");
         setIsTransLoading((prev) => !prev);
       } 
-
       var formData = {
         listing_price: nftListingPayload.listing_price,
         listing_quantity: 1,
@@ -341,13 +340,13 @@ try{
                   value={nftListingPayload.listing_price}
                 />
                 {itemDetail &&
-                itemDetail.metadata &&
-                itemDetail.metadata !== null &&
-                itemDetail.metadata.cloudax_token &&
-                itemDetail.metadata.cloudax_token !== null &&
-                itemDetail.metadata.cloudax_token._id &&
-                itemDetail.metadata.cloudax_token._id !== null &&
-                itemDetail.metadata.cloudax_token._id.lenght > 0 ? (
+                itemDetail.rawMetadata &&
+                itemDetail.rawMetadata !== null &&
+                itemDetail.rawMetadata.cloudax_token &&
+                itemDetail.rawMetadata.cloudax_token !== null &&
+                itemDetail.rawMetadata.cloudax_token._id &&
+                itemDetail.rawMetadata.cloudax_token._id !== null &&
+                itemDetail.rawMetadata.cloudax_token._id.lenght > 0 ? (
                   ""
                 ) : (
                   <Select
@@ -398,14 +397,14 @@ try{
 
                 <Image
                   src={
-                    itemDetail.metadata && itemDetail.metadata.image
-                      ? itemDetail.metadata.image
+                    itemDetail.rawMetadata && itemDetail.rawMetadata.image
+                      ? itemDetail.rawMetadata.image
                       : APPCONFIG.DEFAULT_NFT_ART
                   }
                   alt={
-                    itemDetail.metadata && itemDetail.metadata.name
-                      ? itemDetail.metadata.name
-                      : `${itemDetail.name}-${itemDetail.tokednId}-image`
+                    itemDetail.rawMetadata && itemDetail.rawMetadata.name
+                      ? itemDetail.rawMetadata.name
+                      : `${itemDetail.rawMetadata.name}-${itemDetail.tokenId}-image`
                   }
                   layout="fill"
                   objectFit="cover"
@@ -418,9 +417,9 @@ try{
               <div className="w-full bg-white rounded-b-2xl p-4 flex flex-col">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-black text-[1.3rem]">
-                    {itemDetail.metadata && itemDetail.metadata.name
-                      ? itemDetail.metadata.name
-                      : itemDetail.name + " - " + itemDetail.tokenId}
+                    {itemDetail.rawMetadata && itemDetail.rawMetadata.name
+                      ? itemDetail.rawMetadata.name
+                      : itemDetail.rawMetadata.name + " - " + itemDetail.tokenId}
                   </span>
                 </div>
               </div>
@@ -439,14 +438,14 @@ try{
             <div className="mt-4 h-40 w-40 relative">
               <Image
                 src={
-                  itemDetail.metadata && itemDetail.metadata.image
-                    ? itemDetail.metadata.image
+                  itemDetail.rawMetadata && itemDetail.rawMetadata.image
+                    ? itemDetail.rawMetadata.image
                     : APPCONFIG.DEFAULT_NFT_ART
                 }
                 alt={
-                  itemDetail.metadata && itemDetail.metadata.name
-                    ? itemDetail.metadata.name
-                    : `${itemDetail.name}-${itemDetail.tokednId}-image`
+                  itemDetail.rawMetadata && itemDetail.rawMetadata.name
+                    ? itemDetail.rawMetadata.name
+                    : `${itemDetail.rawMetadata.name}-${itemDetail.tokednId}-image`
                 }
                 layout="fill"
                 objectFit="cover"

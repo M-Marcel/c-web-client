@@ -36,8 +36,8 @@ const ViewUserNft = () => {
   const handleSellNft = async () => {
     setIsTransLoading((prev) => !prev);
     if (itemDetail) {
-      if (itemDetail && itemDetail.tokenAddress && itemDetail.tokenId) {
-        const contractAddress = itemDetail.tokenAddress;
+      if (itemDetail && itemDetail.contract.address && itemDetail.tokenId) {
+        const contractAddress = itemDetail.contract.address;
         const tokenId = itemDetail.tokenId;
         const provider = new ethers.providers.Web3Provider(
           (window as any).ethereum
@@ -59,7 +59,7 @@ const ViewUserNft = () => {
         if (tnx.events[0].event === "Approval") {
           toast.success("Approval Successful, proceed to listing.");
           push(
-            `/list-owned-nft-for-sale/${itemDetail.tokenAddress}?tokenId=${itemDetail.tokenId}`
+            `/list-owned-nft-for-sale/${itemDetail.contract.address}?tokenId=${itemDetail.tokenId}`
           );
           setIsTransLoading((prev) => !prev);
         } else {
@@ -145,14 +145,14 @@ const ViewUserNft = () => {
               <div className="relative h-[23rem] lg:h-[100%]">
                 <Image
                   src={
-                    itemDetail.metadata && itemDetail.metadata.image
-                      ? itemDetail.metadata.image
+                    itemDetail.rawMetadata && itemDetail.rawMetadata.image
+                      ? itemDetail.rawMetadata.image
                       : APPCONFIG.DEFAULT_NFT_ART
                   }
                   alt={
-                    itemDetail.metadata && itemDetail.metadata.name
-                      ? itemDetail.metadata.name
-                      : `${itemDetail.name}-${itemDetail.tokednId}-image`
+                    itemDetail.rawMetadata && itemDetail.rawMetadata.name
+                      ? itemDetail.rawMetadata.name
+                      : `${itemDetail.rawMetadata.name}-${itemDetail.tokenId}-image`
                   }
                   layout="fill"
                   objectFit="cover"
@@ -207,11 +207,11 @@ const ViewUserNft = () => {
                   <div className="flex items-center mb-4">
                     <span className="text-xl lg:mr-1">
                       <Link
-                        href={`/on-chain-single-collection/${itemDetail.tokenAddress}`}
+                        href={`/on-chain-single-collection/${itemDetail.contract.address}`}
                       >
-                        {itemDetail.metadata && itemDetail.metadata.name
-                          ? itemDetail.metadata.name
-                          : itemDetail.name + " - " + itemDetail.tokenId}
+                        {itemDetail.rawMetadata && itemDetail.rawMetadata.name
+                          ? itemDetail.rawMetadata.name
+                          : itemDetail.rawMetadata.name + " - " + itemDetail.tokenId}
                       </Link>
                     </span>
                     <div className="h-6 w-6 relative">
@@ -226,9 +226,9 @@ const ViewUserNft = () => {
                   </div>
                 </div>
                 <span className="text-4xl font-bold capitalize">
-                  {itemDetail.metadata && itemDetail.metadata.name
-                    ? itemDetail.metadata.name
-                    : itemDetail.name + " - " + itemDetail.tokenId}
+                  {itemDetail.rawMetadata && itemDetail.rawMetadata.name
+                    ? itemDetail.rawMetadata.name
+                    : itemDetail.rawMetadata.name + " - " + itemDetail.tokenId}
                 </span>
               </div>
               <div className="view-hero-nft-owner">
@@ -263,7 +263,7 @@ const ViewUserNft = () => {
                         </span> */}
                       <span className="text-xl block mt-2">
                         Item quantity:{" "}
-                        {itemDetail.amount ? itemDetail.amount : 0}
+                        {itemDetail.amount ? itemDetail.amount : 1}
                       </span>
                     </div>
                   </div>
@@ -313,9 +313,9 @@ const ViewUserNft = () => {
             <h2 className="text-2xl font-bold ">Description</h2>
             <div className="flex flex-col">
               <p className="text-txt-2">
-                {itemDetail.metadata && itemDetail.metadata.description
-                  ? itemDetail.metadata.description
-                  : itemDetail.name + " - " + itemDetail.tokenId}
+                {itemDetail.rawMetadata && itemDetail.rawMetadata.description
+                  ? itemDetail.rawMetadata.description
+                  : itemDetail.rawMetadata.name + " - " + itemDetail.tokenId}
               </p>
             </div>
 
