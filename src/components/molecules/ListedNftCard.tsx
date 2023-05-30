@@ -10,8 +10,6 @@ import UseConvertEthToDollar from "@/src/hooks/useEthConvertToDollar";
 import { useTimeCountDown } from "@/src/hooks/useTimeCountDown";
 import * as moment from "moment";
 
-// Partial<Pick<INftcard, "name" | "imgUrl" | "price">> & {
-//   time?: boolean;
 
 const ListedNftCard = ({
   _id,
