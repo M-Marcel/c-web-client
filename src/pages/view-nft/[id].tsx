@@ -37,7 +37,7 @@ const ViewNft = () => {
         } else if (response.status == 200) {
           setItemDetail(response.data.data);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!83");
           return;
         }
       });

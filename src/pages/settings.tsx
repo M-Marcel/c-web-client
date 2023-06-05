@@ -168,7 +168,7 @@ const Settings = () => {
           setIsLoading((prev) => !prev);
           push("/profile");
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!30");
           setIsLoading((prev) => !prev);
           return;
         }
@@ -203,7 +203,7 @@ const Settings = () => {
         });
         setIsTransLoading(false);
       } else {
-        toast("Something went wrong, please try again!");
+        toast("Something went wrong, please try again!31");
         return;
       }
     });

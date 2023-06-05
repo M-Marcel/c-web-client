@@ -133,7 +133,7 @@ const BuyAuctionNFT = () => {
       } else if (response.status == 200) {
         setUserId(response.data.data._id);
       } else {
-        toast("Something went wrong, please try again!");
+        toast("Something went wrong, please try again!32");
         return;
       }
     });
@@ -180,12 +180,12 @@ const BuyAuctionNFT = () => {
           setCurrentPage(response.data.currentPage);
           setNextPage(response.data.nextPage);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!33");
           return;
         }
       });
     } catch (error) {
-      toast("Something went wrong, please try again!");
+      toast("Something went wrong, please try again!34");
       return;
     }
   };
@@ -352,7 +352,7 @@ const BuyAuctionNFT = () => {
           }
           setItemDetail(response.data.listing);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!35");
           return;
         }
       });

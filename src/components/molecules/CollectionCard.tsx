@@ -13,6 +13,7 @@ interface ICollectionCard {
   user_id: {};
 }
 
+
 const CollectionCard: NextPage<Partial<ICollectionCard>> = ({
   _id,
   name,

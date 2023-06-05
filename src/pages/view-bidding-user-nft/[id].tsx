@@ -59,7 +59,7 @@ const ViewUserNft = () => {
         } else if (response.status === 200) {
           setOwner(response.data.data.userProfileImg);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!73");
           return;
         }
       });
@@ -88,7 +88,7 @@ const ViewUserNft = () => {
           }
           setItemDetail(response.data.listing);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!74");
           return;
         }
       });
@@ -115,7 +115,7 @@ const ViewUserNft = () => {
           toast(response.data.message);
           setShowModal((prev) => !prev);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!75");
           setShowModal((prev) => !prev);
           return;
         }
@@ -138,7 +138,7 @@ const ViewUserNft = () => {
         } else if (response.status == 200) {
           setOfferLists(response.data.data);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!76");
           return;
         }
       });

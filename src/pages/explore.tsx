@@ -48,12 +48,12 @@ const Explore = () => {
           setNextPage(response.data.nextPage);
           setIsLoading(false);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!15");
           return;
         }
       });
     } catch (error) {
-      toast("Something went wrong, please try again!");
+      toast("Something went wrong, please try again!16");
       return;
     }
   };

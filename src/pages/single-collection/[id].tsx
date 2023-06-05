@@ -175,7 +175,7 @@ const ViewCollection = () => {
           }
           setIsLoading(false);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!51");
           return;
         }
       });

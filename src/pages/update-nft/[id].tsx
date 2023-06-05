@@ -82,12 +82,12 @@ const CreateNewNft = () => {
         } else if (response.status == 200) {
           setCollections(response.data.data);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!68");
           return;
         }
       });
     } catch (error) {
-      toast("Something went wrong, please try again!");
+      toast("Something went wrong, please try again!69");
       return;
     }
   };
@@ -173,7 +173,7 @@ const CreateNewNft = () => {
           setNftCoverImage(response.data.data.item_art_url);
           setIsLoading(false);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!70");
           return;
         }
       });
@@ -263,13 +263,13 @@ const CreateNewNft = () => {
             toast.success(response.data.message);
             push("/profile");
           } else {
-            toast.error("Something went here wrong, please try again!");
+            toast.error("Something went here wrong, please try again!71");
             setIsLoading((prev) => !prev);
             return;
           }
         });
       } catch (error) {
-        toast.error("Something went wrong, please try again!");
+        toast.error("Something went wrong, please try again!72");
         setIsLoading((prev) => !prev);
         return;
       }
