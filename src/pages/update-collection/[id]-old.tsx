@@ -158,12 +158,12 @@ const UpdateCollection: FC<ICollectionProps> = () => {
           setCategory(response.data.data[1]);
           setCategories(response.data.data);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!52");
           return;
         }
       });
     } catch (error) {
-      toast("Something went wrong, please try again!");
+      toast("Something went wrong, please try again!53");
       return;
     }
   };
@@ -203,7 +203,7 @@ const UpdateCollection: FC<ICollectionProps> = () => {
           setCollectionFeaturedArt(response.data.data.collectionFeaturedImage);
           setCollectionLogo(response.data.data.collectionLogoImage);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!54");
           return;
         }
       });
@@ -311,7 +311,7 @@ const UpdateCollection: FC<ICollectionProps> = () => {
           setIsTransLoading(false);
           // closeModal((prev) => !prev);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!55");
           setIsTransLoading(false);
           return;
         }

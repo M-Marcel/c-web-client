@@ -183,12 +183,12 @@ const CreateCollection: FC<ICollectionProps> = () => {
           // setCategory(response.data.data[1]);
           setCategories(response.data.data);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!8");
           return;
         }
       });
     } catch (error) {
-      toast("Something went wrong, please try again!");
+      toast("Something went wrong, please try again!9");
       return;
     }
   };
@@ -274,7 +274,7 @@ const CreateCollection: FC<ICollectionProps> = () => {
           setIsTransLoading(false);
           push("/create-new-nft");
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!10");
           setIsTransLoading(false);
           return;
         }

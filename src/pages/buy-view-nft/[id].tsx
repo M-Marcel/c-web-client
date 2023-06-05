@@ -162,7 +162,7 @@ const ViewNft = () => {
       } else if (response.status === 200) {
         setUserId(response.data.data._id);
       } else {
-        toast("Something went wrong, please try again!");
+        toast("Something went wrong, please try again!36");
         return;
       }
     });
@@ -209,12 +209,12 @@ const ViewNft = () => {
           setCurrentPage(response.data.currentPage);
           setNextPage(response.data.nextPage);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!37");
           return;
         }
       });
     } catch (error) {
-      toast("Something went wrong, please try again!");
+      toast("Something went wrong, please try again!38");
       return;
     }
   };
@@ -632,7 +632,7 @@ const ViewNft = () => {
           );
           setOfferLists(response.data.listing.offers);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!39");
           return;
         }
       });
@@ -1518,8 +1518,8 @@ const ViewNft = () => {
                   value={nftBidPayload.price}
                 />
                 <p className="mt-6">
-                  <span className="font-bold text-txt-2 text-base">
-                    Insufficient wETH balance ?{" "}
+                  <span className="font-bold text-txt-2 text-base">{ modalType != "buy" ? "Insufficient wETH balance" : " " }
+                    
                   </span>
                   <span
                     className="earnings-card-history cursor-pointer font-bold"
@@ -1643,7 +1643,7 @@ const ViewNft = () => {
                   {/* {!isSufficient && ( */}
                   <div>
                     <span className="font-bold text-txt-2 text-base">
-                      Insufficient wETH balance ?{" "}
+                      Insufficient wETHH1 balance ?{" "}
                     </span>
                     <span
                       className="earnings-card-history cursor-pointer font-bold"
@@ -1847,9 +1847,9 @@ const ViewNft = () => {
               onClick={handleBuy}
               isDisabled={isTransloading}
             />
-            <p>
-              <span className="font-bold text-txt-2 text-base">
-                Insufficient wETH balance ?{" "}
+            { modalType != "buy" ?<p>
+              <span className="font-bold text-txt-2 text-base"> { modalType != "buy" ? "Insufficient wETH balance" : " " }
+                {/* Insufficient wETHH2 balance ?{" "} */}
               </span>
 
               <span
@@ -1858,7 +1858,8 @@ const ViewNft = () => {
               >
                 Add funds or swap
               </span>
-            </p>
+            </p> : " " }
+            
           </div>
         )}
       </Modal>

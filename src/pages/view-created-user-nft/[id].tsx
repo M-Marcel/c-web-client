@@ -47,7 +47,7 @@ const ViewUserNft = () => {
       } else if (response.status == 200) {
         setOwner(response.data.data.userProfileImg);
       } else {
-        toast("Something went wrong, please try again!");
+        toast("Something went wrong, please try again!77");
         return;
       }
     });
@@ -68,7 +68,7 @@ const ViewUserNft = () => {
         } else if (response.status == 200) {
           setItemDetail(response.data.data);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!78");
           return;
         }
       });

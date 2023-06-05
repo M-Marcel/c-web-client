@@ -118,12 +118,12 @@ const CreateNewNft = () => {
           setCollections(response.data.data);
           setIsLoading(false);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!11");
           return;
         }
       });
     } catch (error) {
-      toast("Something went wrong, please try again!");
+      toast("Something went wrong, please try again!12");
       return;
     }
   };
@@ -260,13 +260,13 @@ const CreateNewNft = () => {
             setIsTransLoading((prev) => !prev);
             // setShowModal(true);
           } else {
-            toast("Something went wrong, please try again!");
+            toast("Something went wrong, please try again!13");
             setIsTransLoading((prev) => !prev);
             return;
           }
         });
       } catch (error) {
-        toast("Something went wrong, please try again!");
+        toast("Something went wrong, please try again!14");
         setIsTransLoading((prev) => !prev);
         return;
       }

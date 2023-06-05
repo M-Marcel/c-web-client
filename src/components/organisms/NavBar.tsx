@@ -108,7 +108,7 @@ const NavBar: FC<INav> = ({
           profileImg: response.data.data.userProfileImg,
         });
       } else {
-        toast("Something went wrong, please try again!");
+        toast("Something went wrong, please try again!2");
         return;
       }
     });

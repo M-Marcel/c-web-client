@@ -153,12 +153,12 @@ const ImportCollection: FC<ICollectionProps> = () => {
           setCategory(response.data.data[1]);
           setCategories(response.data.data);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!17");
           return;
         }
       });
     } catch (error) {
-      toast("Something went wrong, please try again!");
+      toast("Something went wrong, please try again!18");
       return;
     }
   };
@@ -232,7 +232,7 @@ const ImportCollection: FC<ICollectionProps> = () => {
           setCollectionLogo(null);
           // closeModal((prev) => !prev);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!19");
           setIsTransLoading(false);
           return;
         }

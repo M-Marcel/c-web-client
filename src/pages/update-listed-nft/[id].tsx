@@ -95,12 +95,12 @@ const CreateNewNft = () => {
         } else if (response.status == 200) {
           setCollections(response.data.data);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!64");
           return;
         }
       });
     } catch (error) {
-      toast("Something went wrong, please try again!");
+      toast("Something went wrong, please try again!65");
       return;
     }
   };
@@ -186,7 +186,7 @@ const CreateNewNft = () => {
           setNftCoverImage(response.data.listing.item.item_art_url);
           setIsLoading(false);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!66");
           return;
         }
       });
@@ -353,7 +353,7 @@ const CreateNewNft = () => {
           }
         });
       } catch (error) {
-        toast.error("Something went wrong, please try again!");
+        toast.error("Something went wrong, please try again!67");
         setIsTransLoading(false);
         return;
       }

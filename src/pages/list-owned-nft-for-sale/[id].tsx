@@ -70,7 +70,7 @@ const ListNft = () => {
           toast(error);
           return;
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!44");
           return;
         }
       });
@@ -107,7 +107,7 @@ const ListNft = () => {
           toast(error);
           return;
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!45");
           return;
         }
       });
@@ -132,12 +132,12 @@ const ListNft = () => {
           } else if (response.status == 200) {
             setCollections(response.data.data);
           } else {
-            toast("Something went wrong, please try again!");
+            toast("Something went wrong, please try again!46");
             return;
           }
         });
       } catch (error) {
-        toast("Something went wrong, please try again!");
+        toast("Something went wrong, please try again!47");
         return;
       }
     }
@@ -308,13 +308,13 @@ try{
             push("/profile");
             setIsTransLoading((prev) => !prev);
           } else {
-            toast("Something went wrong, please try again!");
+            toast("Something went wrong, please try again!48");
             setIsTransLoading((prev) => !prev);
             return;
           }
         });
       } catch (error) {
-        toast("Something went wrong, please try again!");
+        toast("Something went wrong, please try again!49");
         setIsTransLoading((prev) => !prev);
         return;
       }

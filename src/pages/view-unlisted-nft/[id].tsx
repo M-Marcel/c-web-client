@@ -192,7 +192,7 @@ const ViewUnlistedNFT = () => {
       } else if (response.status == 200) {
         setUserId(response.data.data._id);
       } else {
-        toast("Something went wrong, please try again!");
+        toast("Something went wrong, please try again!87");
         return;
       }
     });
@@ -239,12 +239,12 @@ const ViewUnlistedNFT = () => {
           setCurrentPage(response.data.currentPage);
           setNextPage(response.data.nextPage);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!88");
           return;
         }
       });
     } catch (error) {
-      toast("Something went wrong, please try again!");
+      toast("Something went wrong, please try again!89");
       return;
     }
   };
@@ -412,7 +412,7 @@ const ViewUnlistedNFT = () => {
           setItemDetail(response.data.data);
           fetchActivities();
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!90");
           return;
         }
       });

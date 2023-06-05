@@ -73,7 +73,7 @@ const SideBar = () => {
           profileImg: response.data.data.userProfileImg,
         });
       } else {
-        toast("Something went wrong, please try again!");
+        toast("Something went wrong, please try again!1");
         return;
       }
     });

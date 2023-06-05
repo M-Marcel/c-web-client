@@ -46,6 +46,7 @@ const Profile = () => {
     useState<Array<INftcard> | null>([]);
   const [collections, setCollections] = useState<INftcard[]>([]);
   const [onChainCollections, setOnChainCollections] = useState<INftcard[]>([]);
+  const [onChainCollectionsCount, setOnChainCollectionsCount] = useState("");
   // const [user, setUser] = useState<null | Record<string, string>>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [myProfile, setMyProfile] = useState<IUserProps | null>(null);
@@ -73,7 +74,7 @@ const Profile = () => {
     { text: "Activity", count: activities.length },
     {
       text: "My Collection",
-      count: collections.length + onChainCollections.length,
+      count: collections.length + onChainCollectionsCount.totalCount,
     },
   ];
 
@@ -133,7 +134,7 @@ const Profile = () => {
         }
         setIsLoading(false);
       } else {
-        toast("Something went wrong, please try again!");
+        toast("Something went wrong, please try again!22");
         return;
       }
     });
@@ -164,7 +165,7 @@ const Profile = () => {
         } else if (response.status == 200) {
           setUserOwnedProfileData(response.data.data.ownedNfts);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!23");
           return;
         }
       });
@@ -237,15 +238,16 @@ const Profile = () => {
           toast("Unauthorized request!");
           return;
         } else if (response.status == 200) {
+          console.log("collections" ,response.data.data);
           setCollections(response.data.data);
           setIsLoading(false);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!24");
           return;
         }
       });
     } catch (error) {
-      toast("Something went wrong, please try again!");
+      toast("Something went wrong, please try again!25");
       return;
     }
 
@@ -264,17 +266,20 @@ const Profile = () => {
           toast("Unauthorized request!");
           return;
         } else if (response.status == 200) {
-          // console.log('response.data',response.data.data)
+          console.log('response.data',response.data.data)
+          console.log('response.lenght',response.data.data.totalCount)
 
-          setOnChainCollections(response.data.data);
+          setOnChainCollections(response.data.data.contract);
+          setOnChainCollectionsCount(response.data.data);
           setIsLoading(false);
         } else {
-          toast("Something went wrong, please try again!");
+          console.log("response" ,response);
+          toast("Something went wrong, please try again!26");
           return;
         }
       });
     } catch (error) {
-      toast("Something went wrong, please try again!");
+      toast("Something went wrong, please try again!27");
       return;
     }
   };
@@ -331,7 +336,7 @@ const Profile = () => {
         setIsLoading(false);
         // setShowModal(true);
       } else {
-        toast("Something went wrong, please try again!");
+        toast("Something went wrong, please try again!28");
         return;
       }
     });
@@ -391,7 +396,7 @@ const Profile = () => {
         setIsLoading(false);
         // setShowModal(true);
       } else {
-        toast("Something went wrong, please try again!");
+        toast("Something went wrong, please try again!29");
         return;
       }
     });
@@ -650,7 +655,7 @@ const Profile = () => {
             ) : profileActiveTab === 4 ? (
               collections &&
               onChainCollections &&
-              onChainCollections.length > 0 &&
+              onChainCollectionsCount.totalCount > 0 &&
               collections.length > 0 ? (
                 collections.length > 0 ? (
                   <div className="explore-items-wrapper">
@@ -670,7 +675,7 @@ const Profile = () => {
                 )
               ) : collections &&
                 collections.length > 0 &&
-                onChainCollections.length === 0 ? (
+                onChainCollectionsCount.totalCount === 0 ? (
                 collections.length > 0 ? (
                   <div className="explore-items-wrapper">
                     {collections.map((item) => (
@@ -681,13 +686,13 @@ const Profile = () => {
                   ""
                 )
               ) : onChainCollections &&
-                onChainCollections.length > 0 &&
+                onChainCollectionsCount.totalCount > 0 &&
                 collections.length === 0 ? (
-                onChainCollections.length > 0 ? (
+                onChainCollectionsCount.totalCount > 0 ? (
                   <div className="explore-items-wrapper">
                     {onChainCollections.map((item) => (
                       <OnChainCollectionCard
-                        key={item.tokenAddress}
+                        key={item.address}
                         {...item}
                       />
                     ))}

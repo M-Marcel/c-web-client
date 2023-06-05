@@ -3,7 +3,7 @@ import { ethers } from "ethers";
 import { apiRequest } from "../offChain/apiRequests";
 import { redirectUrl, signInMessage } from "../offChain/generalFunctions";
 import APPCONFIG from "../../constants/Config";
-const activeChainId = "0x" + APPCONFIG.APP_NETWORK_CHAIN_ID;
+const activeChainId = "0xaa36a7";
 
 export const connectedAccount = async () => {
   return BasicAuth().then((response) => {

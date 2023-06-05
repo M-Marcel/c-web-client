@@ -75,12 +75,12 @@ const Home: NextPage = () => {
           setFeaturedCollections(response.data.data.featured_collections);
           setItems(response.data.data.items);
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!20");
           return;
         }
       });
     } catch (error) {
-      toast("Something went wrong, please try again!");
+      toast("Something went wrong, please try again!21");
       return;
     }
   };

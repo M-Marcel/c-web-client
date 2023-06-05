@@ -150,13 +150,13 @@ const ListNft = () => {
             toast(response.data.message);
             push("/profile");
           } else {
-            toast("Something went wrong, please try again!");
+            toast("Something went wrong, please try again!42");
             setIsTransLoading(false);
             return;
           }
         });
       } catch (error) {
-        toast("Something went wrong, please try again!");
+        toast("Something went wrong, please try again!43");
         return;
       }
     }

@@ -102,7 +102,7 @@ const ViewUserNft = () => {
           toast(error);
           return;
         } else {
-          toast("Something went wrong, please try again!");
+          toast("Something went wrong, please try again!84");
           return;
         }
       });
